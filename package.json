@@ -1,0 +1,40 @@
+{
+  "name": "simple-api",
+  "version": "0.1.0",
+  "description": "## API Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "test-watch": "jest --watchAll --coverage",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewkyllo-401-advanced-javascript/lab-08-api-server.git"
+  },
+  "author": "Andrew Kyllo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewkyllo-401-advanced-javascript/lab-08-api-server/issues"
+  },
+  "homepage": "https://github.com/andrewkyllo-401-advanced-javascript/lab-08-api-server#readme",
+  "devDependencies": {
+    "@code-fellows/supergoose": "^1.0.1",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2"
+  },
+  "standard": {
+    "env": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.1",
+    "morgan": "^1.9.1"
+  }
+}
