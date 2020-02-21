@@ -1,6 +1,6 @@
 'use strict';
 const Model = require('./mongo-model');
-const schema = require('./users-schema');
+const schema = require('./products-schema');
 
 class Products extends Model {
   constructor () {
