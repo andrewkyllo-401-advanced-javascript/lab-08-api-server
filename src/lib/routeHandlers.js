@@ -2,7 +2,7 @@
 function postRecord (req, res, next) {
   req.model.create(req.body)
     .then(result => {
-      res.status(201).json(result)
+      res.status(201).json(result);
     })
     .catch(next);
 }

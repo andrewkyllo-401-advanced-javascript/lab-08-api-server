@@ -13,9 +13,9 @@ app.use(express.json());
 app.use(cors());
 
 const Categories = require('./models/categories');
-const categories = new Categories;
+const categories = new Categories();
 const Products = require('./models/products');
-const products = new Products;
+const products = new Products();
 
 function getModel (req, res, next) {
   const model = req.params.model;
