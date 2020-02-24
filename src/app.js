@@ -3,6 +3,7 @@
 // Third-part resources
 // create server
 const express = require('express');
+// Middleware that logs requests with time stamp
 const morgan = require('morgan');
 var cors = require('cors');
 
@@ -12,11 +13,13 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
 
+// requires products and categories models
 const Categories = require('./models/categories');
 const categories = new Categories();
 const Products = require('./models/products');
 const products = new Products();
 
+// Determines model params
 function getModel (req, res, next) {
   const model = req.params.model;
   switch (model) {
@@ -33,13 +36,15 @@ function getModel (req, res, next) {
   }
 }
 
+// Requires hanlder functions
 const { postRecord, getAllRecords, updateRecord, destroyRecord } = require('./lib/routeHandlers');
 // Routes
+// Allows for variable routes based on the model param
 app.param('model', getModel);
-app.get('/:model', getAllRecords);
-app.post('/:model', postRecord);
-app.put('/:model/:id', updateRecord);
-app.delete('/:model/:id', destroyRecord);
+app.get('/api/v1/:model', getAllRecords);
+app.post('/api/v1/:model', postRecord);
+app.put('/api/v1/:model/:id', updateRecord);
+app.delete('/api/v1/:model/:id', destroyRecord);
 
 
 
@@ -54,7 +59,7 @@ const internalServerErrorHandler = require('./middlewares/internalServerErrorHan
 app.use(internalServerErrorHandler);
 
 let isRunning = false;
-
+// exports the servers
 module.exports = {
   server: app,
   start: function (port) {

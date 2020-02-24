@@ -10,7 +10,7 @@ class Model {
   }
 
   read (id) {
-    const queryObject = id ? { _id: id } : {};
+    const queryObject = id ? { id: id } : {};
     return this.schema.find(queryObject);
   }
 
